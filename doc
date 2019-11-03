@@ -15,4 +15,13 @@ ___________________________
 
 
 ======================
-platos separados por categorias, jugos, platos de fondo, entradsa, etc
+a.- platos separados por categorias, jugos, platos de fondo, entradsa, etc
+b.- extraer datos de otras webs
+
+
+
+Retos:
+
+1 TDD
+2 Application unit test
+3 events sync
