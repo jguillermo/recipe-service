@@ -1,0 +1,18 @@
+App de recetas.
+
+tipo de busqueda por filtro
+_________________
+1 filtrar por ingredientes y te debe salir los platos que puedes cocinar
+2 los ingredientes deben tener sinonimos
+3 recomendaciones de productos sustitutos (si no tienes esto, puedes poner esto otro)
+4 preparacion, tips, videos, imagenes
+
+tipo de busqueda por plato
+___________________________
+1 buscar por platos, parrilla,
+2 listar recetas exactas con sinonimo o sustitutos
+3 preparacion
+
+
+======================
+platos separados por categorias, jugos, platos de fondo, entradsa, etc
