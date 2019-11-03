@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: recipe.service
+---
+testFramework: spock
+sourceLanguage: java
