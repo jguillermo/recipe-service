@@ -1,6 +1,7 @@
 package recipe.service.shared.domain.types;
 
-import example.micronaut.shared.exception.BadRequestException;
+
+import recipe.service.shared.exception.BadRequestException;
 
 import java.util.UUID;
 
