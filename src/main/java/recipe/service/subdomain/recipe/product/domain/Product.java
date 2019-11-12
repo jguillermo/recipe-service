@@ -1,34 +1,34 @@
 package recipe.service.subdomain.recipe.product.domain;
 
 public class Product {
-    private ProductId productId;
-    private ProductName productName;
-    private ProductUnit productUnit;
+    private ProductId id;
+    private ProductName name;
+    private ProductUnit unit;
 
-    public Product(ProductId productId, ProductName productName, ProductUnit productUnit) {
-        this.productId = productId;
-        this.productName = productName;
-        this.productUnit = productUnit;
+    public Product(ProductId id, ProductName name, ProductUnit unit) {
+        this.id = id;
+        this.name = name;
+        this.unit = unit;
     }
 
-    public static Product create(ProductId productId, ProductName productName, ProductUnit productUnit) {
-        return new Product(productId, productName, productUnit);
+    public static Product create(ProductId id, ProductName name, ProductUnit unit) {
+        return new Product(id, name, unit);
     }
 
-    public ProductId productId() {
-        return productId;
+    public ProductId id() {
+        return id;
     }
 
-    public ProductName productName() {
-        return productName;
+    public ProductName name() {
+        return name;
     }
 
-    public ProductUnit productUnit() {
-        return productUnit;
+    public ProductUnit unit() {
+        return unit;
     }
 
     @Override
     public String toString() {
-        return  productUnit  + " de " + productName;
+        return unit + " de " + name;
     }
 }

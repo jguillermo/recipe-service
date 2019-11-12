@@ -5,5 +5,5 @@ import java.util.Optional;
 public interface ProductRepository {
     public boolean persist(Product product);
 
-    public Optional<Product> findById(ProductId productId);
+    public Optional<Product> findById(ProductId id);
 }
