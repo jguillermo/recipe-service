@@ -1,18 +1,24 @@
 package recipe.service.subdomain.recipe.product.domain;
 
-public class Product {
+import recipe.service.shared.domain.AggregateRoot;
+
+public class Product extends AggregateRoot {
     private ProductId id;
     private ProductName name;
     private ProductUnit unit;
 
-    public Product(ProductId id, ProductName name, ProductUnit unit) {
+    private Product(ProductId id, ProductName name, ProductUnit unit) {
         this.id = id;
         this.name = name;
         this.unit = unit;
     }
 
     public static Product create(ProductId id, ProductName name, ProductUnit unit) {
-        return new Product(id, name, unit);
+        var product = new Product(id, name, unit);
+
+        product.record(new ProductCreated(id.value(), name.value(), unit.value()));
+
+        return product;
     }
 
     public ProductId id() {
