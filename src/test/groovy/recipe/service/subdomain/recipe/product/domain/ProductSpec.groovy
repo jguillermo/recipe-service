@@ -28,11 +28,12 @@ class ProductSpec extends Specification {
             def events = product.pullDomainEvents()
             def eventCreated = events.first()
         then: 'comporbamos que se guardo los eventos en el agregate root'
-            events.size()==1
-            eventCreated.fullQualifiedEventName()=='recipe.service.recipe.event.product.created'
-            eventCreated.id()=='e9c42527-2c74-4605-8796-5e07fc3bedec'
-            eventCreated.name()=='sal'
-            eventCreated.unit()=='EA'
+            events.size() == 1
+            eventCreated.eventName() == 'product.created'
+            HashMap<String, Serializable> data = eventCreated.toPrimitives()
+            eventCreated.aggregateId() == 'e9c42527-2c74-4605-8796-5e07fc3bedec'
+            data.get('name') == 'sal'
+            data.get('unit') == 'EA'
 
     }
 }

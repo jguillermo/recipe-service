@@ -1,19 +1,23 @@
 package recipe.service.shared.domain;
 
-import java.util.LinkedList;
+import recipe.service.shared.domain.bus.event.DomainEvent;
+
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public abstract class AggregateRoot {
-    private List<DomainEvent> recordedDomainEvents = new LinkedList<>();
+    private List<DomainEvent> domainEvents = new ArrayList<>();
 
     final public List<DomainEvent> pullDomainEvents() {
-        final var recordedDomainEvents = this.recordedDomainEvents;
-        this.recordedDomainEvents = new LinkedList<>();
+        List<DomainEvent> events = domainEvents;
 
-        return recordedDomainEvents;
+        domainEvents = Collections.emptyList();
+
+        return events;
     }
 
     final protected void record(DomainEvent event) {
-        recordedDomainEvents.add(event);
+        domainEvents.add(event);
     }
 }

@@ -16,7 +16,7 @@ public class Product extends AggregateRoot {
     public static Product create(ProductId id, ProductName name, ProductUnit unit) {
         var product = new Product(id, name, unit);
 
-        product.record(new ProductCreated(id.value(), name.value(), unit.value()));
+        product.record(new ProductCreatedDomainEvent(id.value(), name.value(), unit.value()));
 
         return product;
     }
