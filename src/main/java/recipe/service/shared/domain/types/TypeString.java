@@ -6,6 +6,10 @@ public abstract class TypeString extends TypeBase<String> {
 		super(value);
 	}
 
+	public int length(){
+		return this.value().length();
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
