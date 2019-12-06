@@ -1,9 +1,9 @@
 package recipe.service.shared.domain.types;
 
 
-public abstract class TypeLong extends TypeBase<Long> {
+public abstract class TypeDouble extends TypeBase<Double> {
 
-    public TypeLong(Long value) {
+    public TypeDouble(Double value) {
         super(value);
     }
 
@@ -23,13 +23,21 @@ public abstract class TypeLong extends TypeBase<Long> {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        TypeLong other = (TypeLong) obj;
+        TypeDouble other = (TypeDouble) obj;
         if (value() == null) {
             if (other.value() != null)
                 return false;
         } else if (!value().equals(other.value()))
             return false;
         return true;
+    }
+
+    @Override
+    public String toString() {
+        if (this.isNull()) {
+            return "";
+        }
+        return Double.toString(this.value());
     }
 
 }

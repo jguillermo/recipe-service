@@ -7,13 +7,13 @@ public abstract class TypeInteger extends TypeBase<Integer> {
         super(value);
     }
 
+
 	/*public TypeInteger(String value, BadRequestException ex) {
 		if (StringUtils.isBlank(value) || !NumberUtils.isDigits(value)) {
 			throw ex;
 		}
 		this.value = Integer.valueOf(value);
 	}*/
-
 
     @Override
     public int hashCode() {
@@ -40,4 +40,11 @@ public abstract class TypeInteger extends TypeBase<Integer> {
         return true;
     }
 
+    @Override
+    public String toString() {
+        if (this.isNull()) {
+            return "";
+        }
+        return Integer.toString(this.value());
+    }
 }
