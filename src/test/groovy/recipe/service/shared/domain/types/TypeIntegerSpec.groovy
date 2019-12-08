@@ -1,6 +1,7 @@
 package recipe.service.shared.domain.types
 
 import recipe.service.shared.domain.types.implement.TypeIntegerImp
+import recipe.service.shared.domain.types.implement.TypeStringImp
 import spock.lang.Specification
 
 
@@ -36,5 +37,38 @@ class TypeIntegerSpec extends Specification {
             0    || false
             -1   || false
             null || true
+    }
+
+    void 'hashCode integer'() {
+        expect:
+            TypeIntegerImp.create(a).hashCode() == b
+        where:
+            a    || b
+            1    || 32
+            0    || 31
+            -1   || 30
+            null || 31
+    }
+
+    void 'equals integer'() {
+        expect:
+            TypeIntegerImp.create(a).equals(b) == c
+        where:
+            a    | b                        || c
+            1    | TypeIntegerImp.create(1) || true
+            1    | 1                        || false
+            1    | TypeIntegerImp.create(2) || false
+            null | 5                        || false
+            null | null                     || false
+    }
+
+    void 'equals especial integer'() {
+        when:
+            def type1 = TypeIntegerImp.create(1)
+            def typeNull = TypeIntegerImp.create(null)
+        then:
+            type1.equals(type1)
+            !typeNull.equals(type1)
+
     }
 }

@@ -1,6 +1,8 @@
 package recipe.service.shared.domain.types
 
 import recipe.service.shared.domain.types.implement.TypeStringImp
+import recipe.service.shared.domain.types.implement.TypeUUIDImp
+import recipe.service.shared.exception.BadRequestException
 import spock.lang.Specification
 
 class TypeStringSpec extends Specification {
@@ -53,6 +55,40 @@ class TypeStringSpec extends Specification {
             'áéíóúÁÉÍÓÚÑñ' || 12
             'á é'          || 3
             null           || 0
+    }
+
+
+    void 'hashCode string'() {
+        expect:
+            TypeStringImp.create(a).hashCode() == b
+        where:
+            a    || b
+            'a'  || 128
+            'b'  || 129
+            'ab' || 3136
+            null || 31
+    }
+
+    void 'equals string'() {
+        expect:
+            TypeStringImp.create(a).equals(b) == c
+        where:
+            a    | b                          || c
+            'b'  | TypeStringImp.create('b')  || true
+            'b'  | 'b'                        || false
+            'a'  | TypeStringImp.create('aa') || false
+            null | 5                          || false
+            null | null                       || false
+    }
+
+    void 'equals especial string'() {
+        when:
+            def typea = TypeStringImp.create('a')
+            def typeNull = TypeStringImp.create(null)
+        then:
+            typea.equals(typea)
+            !typeNull.equals(typea)
+
     }
 
 
