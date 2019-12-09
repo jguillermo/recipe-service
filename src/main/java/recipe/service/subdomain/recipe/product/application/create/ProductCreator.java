@@ -18,7 +18,7 @@ public class ProductCreator {
     public void execute(ProductId productId, ProductName productName, ProductUnit productUnit) {
 
         if (this.productRepository.findById(productId).isPresent()) {
-            throw new BadRequestException(400011,"El id del producto ya existe");
+            throw new BadRequestException(ProductCode.create(1), "El id del producto ya existe");
         }
 
         Product product = Product.create(productId, productName, productUnit);

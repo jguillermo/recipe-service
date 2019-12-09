@@ -1,5 +1,7 @@
 package recipe.service.shared.domain.exception;
 
+import recipe.service.shared.domain.code.AppCode;
+
 public class BadRequestException extends AppException {
 
 
@@ -13,11 +15,11 @@ public class BadRequestException extends AppException {
      * ejemplo : 400 00 xxx
      * @param code
      */
-    public BadRequestException(int code) {
+    public BadRequestException(AppCode code) {
         super(STATUS_CODE, code, "");
     }
 
-    public BadRequestException(int code, String message) {
+    public BadRequestException(AppCode code, String message) {
         super(STATUS_CODE, code, message);
     }
 
