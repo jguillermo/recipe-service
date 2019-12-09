@@ -1,7 +1,7 @@
 package recipe.service.shared.domain.types;
 
 
-import recipe.service.shared.exception.BadRequestException;
+import recipe.service.shared.domain.exception.BadRequestException;
 
 import java.util.UUID;
 
@@ -19,7 +19,7 @@ public abstract class TypeUUID extends TypeString {
         try {
             UUID.fromString(value());
         } catch (IllegalArgumentException exception) {
-            throw new BadRequestException("Uuid value no valid");
+            throw new BadRequestException(400001,"Uuid value no valid");
         }
 
     }

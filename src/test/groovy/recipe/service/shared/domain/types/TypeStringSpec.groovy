@@ -2,7 +2,7 @@ package recipe.service.shared.domain.types
 
 import recipe.service.shared.domain.types.implement.TypeStringImp
 import recipe.service.shared.domain.types.implement.TypeUUIDImp
-import recipe.service.shared.exception.BadRequestException
+import recipe.service.shared.domain.exception.BadRequestException
 import spock.lang.Specification
 
 class TypeStringSpec extends Specification {

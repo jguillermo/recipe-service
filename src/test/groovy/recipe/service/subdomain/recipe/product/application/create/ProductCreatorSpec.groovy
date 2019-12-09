@@ -1,7 +1,7 @@
 package recipe.service.subdomain.recipe.product.application.create
 
 import recipe.service.shared.domain.bus.event.EventBus
-import recipe.service.shared.exception.BadRequestException
+import recipe.service.shared.domain.exception.BadRequestException
 import recipe.service.subdomain.recipe.product.domain.*
 import spock.lang.Specification
 
