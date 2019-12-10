@@ -5,7 +5,7 @@ public abstract class AppCode {
 
     protected String code;
 
-    protected AppCode(Integer code) {
+    public AppCode(Integer code) {
         this.code = this.formatCode(code);
     }
 

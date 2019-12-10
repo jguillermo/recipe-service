@@ -2,7 +2,8 @@ package recipe.service.shared.domain.code;
 
 public class SharedCode extends AppCode {
 
-    protected SharedCode(Integer code) {
+
+    public SharedCode(Integer code) {
         super(code);
     }
 
