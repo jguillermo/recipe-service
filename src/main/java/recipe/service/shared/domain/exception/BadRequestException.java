@@ -1,8 +1,12 @@
 package recipe.service.shared.domain.exception;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import recipe.service.shared.domain.code.AppCode;
 
 public class BadRequestException extends AppException {
+
+    private static final Logger LOG = LoggerFactory.getLogger(BadRequestException.class);
 
 
     private static final int STATUS_CODE = 400;
@@ -13,14 +17,17 @@ public class BadRequestException extends AppException {
      * para el modulo shared poner 00, es muy improbable que tengas mas de 99  agregates
      * y luego poner un codigo para describir el error
      * ejemplo : 400 00 xxx
+     *
      * @param code
      */
     public BadRequestException(AppCode code) {
         super(STATUS_CODE, code, "");
+        LOG.error(this.getCode().toString());
     }
 
     public BadRequestException(AppCode code, String message) {
         super(STATUS_CODE, code, message);
+        LOG.error(this.getCode().toString() + " - " + this.getMessage());
     }
 
 }
