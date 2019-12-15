@@ -6,7 +6,7 @@ import recipe.service.shared.domain.code.AppCode;
 
 public class BadRequestException extends AppException {
 
-    private static final Logger LOG = LoggerFactory.getLogger(BadRequestException.class);
+    private static final Logger LOG = LoggerFactory.getLogger(BadRequestException.class.getName());
 
 
     private static final int STATUS_CODE = 400;
