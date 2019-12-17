@@ -1,11 +1,10 @@
 package recipe.service.shared.domain.bus.event;
 
-import recipe.service.shared.domain.Utils;
+import recipe.service.shared.domain.types.implement.TypeDateTimeImp;
+import recipe.service.shared.domain.types.implement.TypeUUIDImp;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.HashMap;
-import java.util.UUID;
 
 public abstract class DomainEvent {
     private String aggregateId;
@@ -14,21 +13,23 @@ public abstract class DomainEvent {
 
     public DomainEvent(String aggregateId) {
         this.aggregateId = aggregateId;
-        this.eventId     = UUID.randomUUID().toString();
-        this.occurredOn  = Utils.dateToString(LocalDateTime.now());
+        this.eventId = TypeUUIDImp.randon().value();
+        this.occurredOn = TypeDateTimeImp.now().formatDateTime();
     }
 
     public DomainEvent(String aggregateId, String eventId, String occurredOn) {
         this.aggregateId = aggregateId;
-        this.eventId     = eventId;
-        this.occurredOn  = occurredOn;
+        this.eventId = eventId;
+        this.occurredOn = occurredOn;
     }
 
     protected DomainEvent() {
     }
 
     public abstract String eventName();
+
     public abstract HashMap<String, Serializable> toPrimitives();
+
     public abstract DomainEvent fromPrimitives(
             String aggregateId,
             HashMap<String, Serializable> body,
